@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="form">
+    <h1>{{ "Aktualizace uživatele" if is_update else "Přidání nového uživatele" }}</h1>
+    <form method="POST" action="{{ url_for('update', id=user_id) if is_update else url_for('form') }}">
+        {{ form.hidden_tag() }}  <!-- CSRF ochrana -->
+
+        <label for="name">Jméno</label>
+        {{ form.name(size=32) }}
+        <br><br>
+
+        <label for="birth_date">Datum narození</label>
+        {{ form.birth_date() }}
+        <br><br>
+
+        <label for="email">Email</label>
+        {{ form.email(size=32) }}
+        <br><br>
+
+        <input type="submit" value="{{ "Aktualizovat" if is_update else "Odeslat" }}">
+    </form>
+</div>
+{% endblock %}
