@@ -32,11 +32,11 @@
         {% else %}
             <table class="table-content">
                 <tr>
-                    <th>Jméno a Přijmení</th>
+                    <th>Jméno</th>
                     <th>Datum narození</th>
                     <th>Email</th>
                     <th>Datum vytvoření</th>
-                    <th>Proveď akci</th>
+                    <th>Akce</th>
                 </tr>
                 {% for record in records %}
                     <tr>
@@ -48,14 +48,14 @@
                             <form action="/delete/{{ record.id }}" method="post" style="display: inline-block;">
                                 <button type="submit" class="button">Smazat</button>
                             </form>
-                            <a href="/update/{{ record.id }}" class="button">Aktualizuj</a>
+                            <a href="/update/{{ record.id }}" class="button">Aktualizovat</a>
                         </td>
                     </tr>
                 {% endfor %}
             </table>
         {% endif %}
         <div class="add-user">
-            <a href="/form" class="button">Přidej nového uživatele</a>
+            <a href="/form" class="button">Přidat</a>
         </div>
     </div>
 {% endblock %}
