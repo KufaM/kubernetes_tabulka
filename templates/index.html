@@ -2,33 +2,13 @@
 
 {% block head %}
     <title>Databáze</title>
-    <style>
-        .table-content {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        .table-content th, .table-content td {
-            padding: 15px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-        .table-content th {
-            background-color: #f2f2f2;
-        }
-        .table-content tr:hover {
-            background-color: #f5f5f5;
-        }
-        .button {
-            margin: 5px;
-        }
-    </style>
 {% endblock %}
 
 {% block body %}
     <div class="content">
         <h1 style="text-align: center;">Uživatelé</h1>
         {% if records|length < 1 %}
-            <h4 style="text-align: center;">0 Záznamů, přidej:</h4>
+            <h4 style="text-align: center;">Zatím žádné záznamy, přidejte jeden!</h4>
         {% else %}
             <table class="table-content">
                 <tr>
@@ -46,7 +26,7 @@
                         <td>{{ record.created_at.strftime("%d. %m. %Y %H:%M:%S") }}</td>
                         <td>
                             <form action="/delete/{{ record.id }}" method="post" style="display: inline-block;">
-                                <button type="submit" class="button">Smazat</button>
+                                <button type="submit" class="button">Vymazat</button>
                             </form>
                             <a href="/update/{{ record.id }}" class="button">Aktualizovat</a>
                         </td>
@@ -55,7 +35,7 @@
             </table>
         {% endif %}
         <div class="add-user">
-            <a href="/form" class="button">Přidat</a>
+            <a href="/form" class="button">Přidat uživatele</a>
         </div>
     </div>
 {% endblock %}
